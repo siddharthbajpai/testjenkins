@@ -29,7 +29,7 @@ pipeline {
         stage('Merge') {
             steps {
                 script {
-                    sh "git merge main"
+                    sh "git merge div"
                 }
             }
         }
