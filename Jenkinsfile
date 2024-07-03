@@ -19,9 +19,10 @@ pipeline {
             }
         }
 
-        stage{
+        stage('pull changes'){
             steps{
                 script{
+                    
                      sh"git pull origin main"
                 }
             }
