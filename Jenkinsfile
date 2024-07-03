@@ -19,6 +19,13 @@ pipeline {
             }
         }
 
+        stage{
+            steps{
+                script{
+                    sh"git pull origin main"
+            }
+        }
+
         stage('Merge') {
             steps {
                 script {
