@@ -1,19 +1,39 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                //
+            
+                git branch: 'main', url: 'https://github.com/siddharthbajpai/testjenkins.git'
             }
         }
-        stage('Test') {
+
+        stage('Checkout Branches') {
             steps {
-                //
+                script {
+                    
+                     sh "git checkout main"
+                     sh"git checkout div"
+                }
             }
         }
-        stage('Deploy') {
+
+        stage('Merge') {
             steps {
-                //
+                script {
+                    
+                    "git merge div" 
+                }
+            }
+        }
+
+        stage('Push Changes') {
+            steps {
+                script {
+                
+                     sh "git push origin main"
+                }
             }
         }
     }
