@@ -22,7 +22,8 @@ pipeline {
         stage{
             steps{
                 script{
-                    sh"git pull origin main"
+                     sh"git pull origin main"
+                }
             }
         }
 
