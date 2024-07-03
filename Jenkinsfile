@@ -24,6 +24,7 @@ pipeline {
                 script{
                     
                      sh"git pull origin main"
+                     sh"git pull origin div"
                 }
             }
         }
