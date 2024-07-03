@@ -16,12 +16,12 @@ pipeline {
             }
         }
 
-        stage('Pull Changes') {
+        stage('Pull Changes from div') {
             steps {
                 script {
                     
                     sh "git pull origin main"
-                    sh "  git config pull.rebase false  # merge"
+        
                 }
             }
         }
