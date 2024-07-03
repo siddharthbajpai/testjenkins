@@ -1,22 +1,43 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Copy File') {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/siddharthbajpai/testjenkins.git'
+            }
+        }
+
+        stage('Checkout Branches') {
             steps {
                 script {
-                
-                    def sourceDir = '/Users/paras/Documents/siddpython'
-                    def destDir = '/Users/paras/Documents/siddharth1'
+                    sh "git checkout div"
+                }
+            }
+        }
+
+        stage('Pull Changes from div') {
+            steps {
+                script {
                     
-                    
-                    def fileName = 'main.py'
-                    
-                    
-                    sh "cp ${sourceDir}/${fileName} ${destDir}/${fileName}"
-                    
-                    
-                  
+                    sh "git pull origin div"
+        
+                }
+            }
+        }
+
+        stage('Merge') {
+            steps {
+                script {
+                    sh "git merge main"
+                }
+            }
+        }
+
+        stage('Push Changes') {
+            steps {
+                script {
+                    sh "git push origin main"
                 }
             }
         }
