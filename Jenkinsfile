@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-            
                 git branch: 'main', url: 'https://github.com/siddharthbajpai/testjenkins.git'
             }
         }
@@ -12,19 +11,17 @@ pipeline {
         stage('Checkout Branches') {
             steps {
                 script {
-                    
-                
-                     sh"git checkout div"
+                    sh "git checkout div"
                 }
             }
         }
 
-        stage('pull changes'){
-            steps{
-                script{
+        stage('Pull Changes') {
+            steps {
+                script {
                     
-                     sh"git pull origin main"
-                     sh"git pull origin div"
+                    sh "git pull origin main"
+                    sh "git pull origin div"
                 }
             }
         }
@@ -32,8 +29,7 @@ pipeline {
         stage('Merge') {
             steps {
                 script {
-                    
-                   sh"git merge div" 
+                    sh "git merge div"
                 }
             }
         }
@@ -41,8 +37,7 @@ pipeline {
         stage('Push Changes') {
             steps {
                 script {
-                
-                     sh "git push origin main"
+                    sh "git push origin main"
                 }
             }
         }
