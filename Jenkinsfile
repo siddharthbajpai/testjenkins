@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     
-                    "git merge div" 
+                   sh"git merge div" 
                 }
             }
         }
